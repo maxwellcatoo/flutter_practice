@@ -1,0 +1,2 @@
+# flutter_practice
+学习flutter的练习项目，也会添加一些公司有时候要用的部分组件demo
