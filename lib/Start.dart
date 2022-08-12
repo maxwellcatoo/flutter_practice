@@ -48,7 +48,7 @@ class _StartState extends State<Start> {
   void startApp() {
     // _loadData(context);
     // Global.i18n = I18n.of(context);
-    Navigator.popAndPushNamed(context, "flutter_app");
+    Navigator.popAndPushNamed(context, "menu_button");
   }
 
   @override

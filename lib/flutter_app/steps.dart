@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-/// @Author: tzh
+/// @Author: lyj
 ///
-/// @CreateDate: 2021/8/30 11:46
+/// @CreateDate: 2022/7/19 11:46
 ///
 /// @Description: 自定义步骤条
+///
+/// @参考文章 https://blog.csdn.net/tangzhengdz/article/details/120018207
 ///
 
 class StepsWidget extends StatefulWidget {
