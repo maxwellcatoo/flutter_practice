@@ -1,10 +1,6 @@
-import 'package:flutt/common/dbHelper.dart';
-import 'package:flutt/common/operateDatabase.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:wechat_assets_picker/wechat_assets_picker.dart';
-
-import 'Global.dart';
-import 'common/uploaded_assets.dart';
 
 class Start extends StatefulWidget {
   const Start({Key? key}) : super(key: key);
@@ -60,6 +56,7 @@ class _StartState extends State<Start> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(360, 690));
     return Center(
         child: TextButton(
             onPressed: startApp,

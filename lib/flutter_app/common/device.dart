@@ -1,4 +1,6 @@
-import 'package:flutt/common/dbHelper.dart';
+
+
+import 'DbHelper.dart';
 
 abstract class Table {
   int? id;

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:flutt/practice/_practice.dart';
+import 'package:flutter_practice/practice/_practice.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

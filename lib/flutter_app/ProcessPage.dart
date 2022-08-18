@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:flutt/Global.dart';
-import 'package:flutt/flutter_app/interfaceB.dart';
-import 'package:flutt/flutter_app/interfaceC.dart';
-import 'package:flutt/flutter_app/steps.dart';
+import 'package:flutter_practice/flutter_app/Global.dart';
+import 'package:flutter_practice/flutter_app/interfaceB.dart';
+import 'package:flutter_practice/flutter_app/interfaceC.dart';
+import 'package:flutter_practice/flutter_app/steps.dart';
 import 'package:flutter/material.dart';
 
 import 'commonClass.dart';

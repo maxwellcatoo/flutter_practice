@@ -1,5 +1,5 @@
 // 数据库帮助类
-import 'package:flutt/common/uploaded_assets.dart';
+import 'package:flutter_practice/flutter_app/common/uploaded_assets.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'device.dart';

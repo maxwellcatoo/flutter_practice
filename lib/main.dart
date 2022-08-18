@@ -1,15 +1,14 @@
-import 'package:flutt/Start.dart';
-import 'package:flutt/practice/Practice.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_practice/practice/Practice.dart';
 import 'package:provider/provider.dart';
-
-import 'common/deviceProvider.dart';
-import 'dropDown/popupMenuButton.dart';
+import 'Start.dart';
 import 'flutter_app/ProcessPage.dart';
+import 'flutter_app/common/deviceProvider.dart';
 import 'networkSocket/MSSocketRouter2.dart';
-import 'official_widget/button_menu.dart';
+import 'official_widget/button/button_menu.dart';
+import 'official_widget/button/official_button_widget/dropDown/popupMenuButton.dart';
+import 'official_widget/notifier/notifier_menu.dart';
 
 enum ScreenDirection {
   horizontal, // 横屏
@@ -29,7 +28,10 @@ class MyApp extends StatelessWidget {
     "networkSocket": (context) => const MSSocketRouter2(),
     "practice": (context) => const PracticePage(),
     "flutter_app": (context) => const ProcessPage(),
+    // 按钮控件菜单
     "menu_button": (context) => const MenuButton(),
+    // notifier系列菜单
+    "notifier": (context) => const MenuNotifier(),
   };
 
   void setScreenDir(ScreenDirection dir) {
@@ -57,18 +59,42 @@ class MyApp extends StatelessWidget {
     setScreenDir(ScreenDirection.vertical);
     // 添加provider
     return ChangeNotifierProvider<DeviceProvider>(
-        create: (context) => DeviceProvider(),
-        child: MaterialApp(
-            title: "title",
-            home: const Start(),
-            // 设置路由
-            onGenerateRoute: (RouteSettings settings) {
-              final String name = settings.name!;
-              final Function? pageContentBuilder = routes[name];
-              // if(settings.)
-              final Route route = MaterialPageRoute(
-                  builder: (context) => pageContentBuilder!(context));
-              return route;
-            }));
+      create: (context) => DeviceProvider(),
+      child: MaterialApp(
+        title: "title",
+        theme: ThemeData(
+          primaryColor: Colors.lightBlue  // 设置appBar的背景色，假如对应位置没有单独设置的appBar的话
+        ),
+        debugShowCheckedModeBanner: false, // 是否显示右上角的debug标志，默认为true
+        home: const Start(),
+        // 设置路由
+        onGenerateRoute: (RouteSettings settings) {
+          final String name = settings.name!;
+          final Function? pageContentBuilder = routes[name];
+          final Route route = MaterialPageRoute(
+              builder: (context) => pageContentBuilder!(context));
+          return route;
+        },
+        // todo 比对一下，上边的onGenerateRoute和下边的onGenerateRoute设置的区别
+        // onGenerateRoute: (RouteSettings settings) {
+        //   String name = settings.name!;
+        //   Function? pageContentBuilder = routes[name];
+        //   if (pageContentBuilder != null) {
+        //     if (settings.arguments != null) {
+        //       return MaterialPageRoute(
+        //           builder: (context) => pageContentBuilder(context),
+        //           settings: settings);
+        //     } else {
+        //       return MaterialPageRoute(
+        //           builder: (context) => pageContentBuilder(context));
+        //     }
+        //   } else {
+        //     return MaterialPageRoute(
+        //         builder: (context) => const Center(child: Text("404页面")),
+        //         settings: settings);
+        //   }
+        // },
+      ),
+    );
   }
 }
