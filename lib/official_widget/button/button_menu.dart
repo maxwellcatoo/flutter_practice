@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/official_widget/_common/common_widget.dart';
+import 'package:flutter_practice/official_widget/_common/label_widget.dart';
+
+import 'official_button_widget/dropDown/popupMenuButton.dart';
+import 'official_button_widget/dropdown_button.dart';
 
 class MenuButton extends StatefulWidget {
   const MenuButton({Key? key}) : super(key: key);
@@ -8,17 +13,17 @@ class MenuButton extends StatefulWidget {
 }
 
 class _MenuButtonState extends State<MenuButton> {
-  List<Widget> buttons = [];
+  List<LabelWidget> buttons = [
+    LabelWidget(mainTitle: "DropdownButton",subTitle: "下拉菜单按钮1", widget: const DropdownButtonWidget()),
+    LabelWidget(mainTitle: "DropdownButton2",subTitle: "下拉菜单按钮2", widget: const DropdownButtonWidget()),
+    LabelWidget(mainTitle: "PopupMenuButton", subTitle: "弹出框菜单栏", widget: const SelectDemoPage()),
+  ];
   bool? _isSelected = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("official_button_list"),
-          centerTitle: true,
-          backgroundColor: Colors.lightBlue,
-        ),
+        appBar: getAppBar(context, "按钮菜单列表页", true),
         body: Checkbox(
           value: _isSelected,
           activeColor: Colors.red, //选中时的颜色
