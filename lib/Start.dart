@@ -41,28 +41,24 @@ class _StartState extends State<Start> {
     });
   }*/
 
-  void startApp() {
+  startApp() async{
     // _loadData(context);
     // Global.i18n = I18n.of(context);
-    Navigator.popAndPushNamed(context, "menu_button");
+    await Future.delayed(const Duration(milliseconds: 0));
+    Navigator.popAndPushNamed(context, "menu_list");
   }
 
   @override
   void dispose() {
-    // todo 开启第一次分享检查
-    // todo 开启全局监听
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: const Size(360, 690));
-    return Center(
-        child: TextButton(
-            onPressed: startApp,
-            child: const Text(
-              "启动",
-              style: TextStyle(fontSize: 30),
-            )));
+
+    startApp();
+
+    return Container();
   }
 }

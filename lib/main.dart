@@ -8,6 +8,7 @@ import 'flutter_app/common/deviceProvider.dart';
 import 'networkSocket/MSSocketRouter2.dart';
 import 'official_widget/button/button_menu.dart';
 import 'official_widget/button/official_button_widget/dropDown/popupMenuButton.dart';
+import 'official_widget/menu_list_entrance.dart';
 import 'official_widget/notifier/notifier_menu.dart';
 
 enum ScreenDirection {
@@ -16,6 +17,11 @@ enum ScreenDirection {
 }
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    // Brightness.light 状态栏字体颜色（白色）
+    // statusBarIconBrightness: Brightness.dark, // 状态栏字体颜色（黑色）
+    // statusBarColor: Colors.yellow, // 状态栏背景色
+  ));
   runApp(MyApp());
 }
 
@@ -28,10 +34,8 @@ class MyApp extends StatelessWidget {
     "networkSocket": (context) => const MSSocketRouter2(),
     "practice": (context) => const PracticePage(),
     "flutter_app": (context) => const ProcessPage(),
-    // 按钮控件菜单
-    "menu_button": (context) => const MenuButton(),
-    // notifier系列菜单
-    "notifier": (context) => const MenuNotifier(),
+    // 官方控件Demo入口
+    "menu_list": (context) => const MenuListEntrance(),
   };
 
   void setScreenDir(ScreenDirection dir) {
@@ -63,9 +67,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: "title",
         theme: ThemeData(
-          primaryColor: Colors.lightBlue  // 设置appBar的背景色，假如对应位置没有单独设置的appBar的话
-        ),
-        debugShowCheckedModeBanner: false, // 是否显示右上角的debug标志，默认为true
+            primaryColor: Colors.lightBlue // 设置appBar的背景色，假如对应位置没有单独设置的appBar的话
+            ),
+        debugShowCheckedModeBanner: false,
+        // 是否显示右上角的debug标志，默认为true
         home: const Start(),
         // 设置路由
         onGenerateRoute: (RouteSettings settings) {

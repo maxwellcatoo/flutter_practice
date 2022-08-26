@@ -14,33 +14,41 @@ class MenuButton extends StatefulWidget {
 
 class _MenuButtonState extends State<MenuButton> {
   List<LabelWidget> buttons = [
-    LabelWidget(mainTitle: "DropdownButton",subTitle: "下拉菜单按钮1", widget: const DropdownButtonWidget()),
-    LabelWidget(mainTitle: "DropdownButton2",subTitle: "下拉菜单按钮2", widget: const DropdownButtonWidget()),
-    LabelWidget(mainTitle: "PopupMenuButton", subTitle: "弹出框菜单栏", widget: const SelectDemoPage()),
+    LabelWidget(
+        mainTitle: "DropdownButton",
+        subTitle: "下拉菜单按钮1",
+        widget: const DropdownButtonWidget()),
+    LabelWidget(
+        mainTitle: "DropdownButton2",
+        subTitle: "下拉菜单按钮2",
+        widget: const DropdownButtonWidget()),
+    LabelWidget(
+        mainTitle: "PopupMenuButton",
+        subTitle: "弹出框菜单栏",
+        widget: const SelectDemoPage()),
   ];
-  bool? _isSelected = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: getAppBar(context, "按钮菜单列表页", true),
-        body: Checkbox(
-          value: _isSelected,
-          activeColor: Colors.red, //选中时的颜色
-          onChanged: (value) {
-            setState(() {
-              _isSelected = value;
-            });
+      appBar: getAppBar(context, "按钮菜单列表页", true),
+      body: ListView.separated(
+          itemBuilder: (context, index) {
+            var item = buttons[index];
+            return ListTile(
+                title: Text(item.mainTitle),
+                subtitle: Text(item.subTitle),
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return item.widget;
+                  }));
+                });
           },
-        )
-        // ListView.separated(
-        //     itemBuilder: (context, index) {
-        //       return buttons[index];
-        //     },
-        //     separatorBuilder: (context, index) {
-        //       return const Divider();
-        //     },
-        //     itemCount: buttons.length),
-        );
+          separatorBuilder: (context, index) {
+            return const Divider();
+          },
+          itemCount: buttons.length),
+    );
   }
 }
