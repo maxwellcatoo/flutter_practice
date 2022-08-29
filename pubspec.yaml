@@ -39,6 +39,7 @@ dependencies:
   sqflite: ^2.0.2 # 数据库所需库
 #  wechat_assets_picker: ^7.1.0 # 图片选择和上传所用库
   flutter_screenutil: ^5.0.0+2 # 屏幕像素适配
+  percent_indicator: 4.0.1
 
 dev_dependencies:
   flutter_test:

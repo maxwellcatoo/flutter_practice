@@ -5,10 +5,12 @@ import 'package:provider/provider.dart';
 import 'Start.dart';
 import 'flutter_app/ProcessPage.dart';
 import 'flutter_app/common/deviceProvider.dart';
+import 'main_menu.dart';
 import 'networkSocket/MSSocketRouter2.dart';
 import 'official_widget/button/button_menu.dart';
 import 'official_widget/button/official_button_widget/dropDown/popupMenuButton.dart';
 import 'official_widget/menu_list_entrance.dart';
+import 'official_widget/notifier/custom_value_notifier/widget/custom_value_notifier_widget.dart';
 import 'official_widget/notifier/notifier_menu.dart';
 
 enum ScreenDirection {
@@ -34,8 +36,10 @@ class MyApp extends StatelessWidget {
     "networkSocket": (context) => const MSSocketRouter2(),
     "practice": (context) => const PracticePage(),
     "flutter_app": (context) => const ProcessPage(),
+    // 各控件Demo入口
+    "main_menu": (context) => const MainMenu(),
     // 官方控件Demo入口
-    "menu_list": (context) => const MenuListEntrance(),
+    // "menu_list": (context) => const MenuListEntrance(),
   };
 
   void setScreenDir(ScreenDirection dir) {

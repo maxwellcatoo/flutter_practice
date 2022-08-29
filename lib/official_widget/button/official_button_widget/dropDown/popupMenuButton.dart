@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/official_widget/_common/common_widget.dart';
 
 class MenuItem {
   String label; // 显示的文本
@@ -149,22 +150,25 @@ class _SelectDemoPageState extends State<SelectDemoPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SelectWidget(
-          items: [
-            MenuItem(label: "张飞", value: '1'),
-            MenuItem(label: "关羽", value: '2'),
-            MenuItem(label: "刘备", value: '3'),
-            MenuItem(label: "圆头儿子", value: '4'),
-            MenuItem(label: "大头爸爸", value: '5'),
-            MenuItem(label: "小头妈妈", value: '6'),
-          ],
-          value: value,
-          valueChanged: selectChange,
-        ),
-      ],
+    return Scaffold(
+      appBar: getAppBar(context, "弹出框菜单栏", true),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SelectWidget(
+            items: [
+              MenuItem(label: "张飞", value: '1'),
+              MenuItem(label: "关羽", value: '2'),
+              MenuItem(label: "刘备", value: '3'),
+              MenuItem(label: "圆头儿子", value: '4'),
+              MenuItem(label: "大头爸爸", value: '5'),
+              MenuItem(label: "小头妈妈", value: '6'),
+            ],
+            value: value,
+            valueChanged: selectChange,
+          ),
+        ],
+      ),
     );
   }
 }

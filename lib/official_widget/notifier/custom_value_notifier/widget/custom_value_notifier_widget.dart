@@ -100,7 +100,7 @@ class FavoriteState extends InheritedWidget {
 
   // 调用子组件
   static FavoriteState of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<FavoriteState>()!;
+    return context.dependOnInheritedWidgetOfExactType<FavoriteState>()!; // fixme 这里一直报错，我不知道为啥，之前一直没啥问题的呀
   }
 
   // todo 很好奇，InheritedWidget特性中所谓的自上而下的共享数据特性，是否可以达到在父组件数据变化后，子组件自动更新的效果。

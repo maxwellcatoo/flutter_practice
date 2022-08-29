@@ -14,7 +14,7 @@ class MenuNotifier extends StatefulWidget {
 class _MenuNotifierState extends State<MenuNotifier> {
   List<LabelWidget> list = [
     LabelWidget(mainTitle: "valueNotifier",subTitle: "valueNotifier", widget: const HomeValueNotifier()),
-    LabelWidget(mainTitle: "自定义ValueNotifier", subTitle: "自定义ValueNotifier", widget: CustomValueNotifierWidget())
+    LabelWidget(mainTitle: "myValueNotifier", subTitle: "自定义ValueNotifier", widget: CustomValueNotifierWidget())
   ];
 
   @override

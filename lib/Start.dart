@@ -45,7 +45,7 @@ class _StartState extends State<Start> {
     // _loadData(context);
     // Global.i18n = I18n.of(context);
     await Future.delayed(const Duration(milliseconds: 0));
-    Navigator.popAndPushNamed(context, "menu_list");
+    Navigator.popAndPushNamed(context, "main_menu");
   }
 
   @override

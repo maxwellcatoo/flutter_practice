@@ -20,7 +20,7 @@ class _MenuListEntranceState extends State<MenuListEntrance> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(context, "各官方组件菜单列表", false),
+      appBar: getAppBar(context, "各官方组件菜单列表", true),
       body: ListView.separated(
           itemBuilder: (context, index) {
             var item = list[index];
