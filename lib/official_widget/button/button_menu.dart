@@ -4,6 +4,7 @@ import 'package:flutter_practice/official_widget/_common/label_widget.dart';
 
 import 'official_button_widget/dropDown/popupMenuButton.dart';
 import 'official_button_widget/dropdown_button.dart';
+import 'official_button_widget/usual_buttons.dart';
 
 class MenuButton extends StatefulWidget {
   const MenuButton({Key? key}) : super(key: key);
@@ -16,16 +17,16 @@ class _MenuButtonState extends State<MenuButton> {
   List<LabelWidget> buttons = [
     LabelWidget(
         mainTitle: "DropdownButton",
-        subTitle: "下拉菜单按钮1",
-        widget: const DropdownButtonWidget()),
-    LabelWidget(
-        mainTitle: "DropdownButton2",
-        subTitle: "下拉菜单按钮2",
+        subTitle: "下拉菜单按钮",
         widget: const DropdownButtonWidget()),
     LabelWidget(
         mainTitle: "PopupMenuButton",
         subTitle: "弹出框菜单栏",
         widget: const SelectDemoPage()),
+    LabelWidget(
+        mainTitle: "UsualButtons",
+        subTitle: "各种常用组件",
+        widget: const UsualButtonsWidget()),
   ];
 
   @override
