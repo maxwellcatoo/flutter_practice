@@ -16,6 +16,10 @@ class MenuButton extends StatefulWidget {
 class _MenuButtonState extends State<MenuButton> {
   List<LabelWidget> buttons = [
     LabelWidget(
+        mainTitle: "UsualButtons",
+        subTitle: "单个按钮",
+        widget: const UsualButtonsWidget()),
+    LabelWidget(
         mainTitle: "DropdownButton",
         subTitle: "下拉菜单按钮",
         widget: const DropdownButtonWidget()),
@@ -23,10 +27,6 @@ class _MenuButtonState extends State<MenuButton> {
         mainTitle: "PopupMenuButton",
         subTitle: "弹出框菜单栏",
         widget: const SelectDemoPage()),
-    LabelWidget(
-        mainTitle: "UsualButtons",
-        subTitle: "各种常用组件",
-        widget: const UsualButtonsWidget()),
   ];
 
   @override
