@@ -7,6 +7,7 @@ AppBar getAppBar(BuildContext context, String title, bool showBack){
     centerTitle: true,
     leading: showBack ? backButton(context, Colors.white) : null,
     backgroundColor: Theme.of(context).primaryColor,
+    elevation: 0,
   );
 }
 // 自定义左边返回按钮
