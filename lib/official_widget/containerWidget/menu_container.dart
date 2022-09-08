@@ -1,8 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice/official_widget/_common/common_widget.dart';
 import 'package:flutter_practice/official_widget/_common/label_widget.dart';
+import 'package:flutter_practice/official_widget/containerWidget/unconstrainedBox/unconstrainedBox.dart';
 
+import 'Container/Container.dart';
+import 'FittedBox/FittedBox.dart';
 import 'constrained_box/constrained_box_widget.dart';
 
 class MenuContainer extends StatefulWidget {
@@ -24,15 +26,22 @@ class _MenuContainerState extends State<MenuContainer> {
         subTitle: "ConstrainedBox可以用(min/max)(width/height)设置宽高，而SizedBox只有height和width属性",
         widget: const ConstrainedBoxWidget()),
     LabelWidget(
-        mainTitle: "UnconstrainedBox",
+        mainTitle: "unconstrainedBox",
         subTitle: "让子组件不再受父组件大小约束，可以自由绘制",
-        widget: const ConstrainedBoxWidget()),
+        widget: const UnconstrainedBoxWidget()),
     LabelWidget(
         mainTitle: "FittedBox",
         subTitle: "动态适配父组件大小。首先按照不约束进行子组件布局，获取子组件自身大小后根据指定的适配方式决定缩放还是裁剪子组件",
-        widget: const ConstrainedBoxWidget()),
+        widget: const FittedBoxWidget()),
+    LabelWidget(
+        mainTitle: "Container",
+        subTitle: "DecoratedBox、ConstrainedBox、Transform、Padding、Align等组件组合的⼀个多功能容器。同时实现多种容器的功能，⽅便减少代码层级。",
+        widget: const ContainerWidget()),
+    LabelWidget(
+        mainTitle: "线性布局Row和Column",
+        subTitle: "横向纵向布局，很类似，不多说了",
+        widget: const FittedBoxWidget()),
   ];
-
 
   @override
   Widget build(BuildContext context) {
