@@ -6,6 +6,7 @@ import 'package:flutter_practice/official_widget/containerWidget/unconstrainedBo
 import 'Container/Container.dart';
 import 'FittedBox/FittedBox.dart';
 import 'constrained_box/constrained_box_widget.dart';
+import 'line_container_widget/line_container_widget.dart';
 
 class MenuContainer extends StatefulWidget {
   const MenuContainer({Key? key}) : super(key: key);
@@ -38,9 +39,9 @@ class _MenuContainerState extends State<MenuContainer> {
         subTitle: "DecoratedBox、ConstrainedBox、Transform、Padding、Align等组件组合的⼀个多功能容器。同时实现多种容器的功能，⽅便减少代码层级。",
         widget: const ContainerWidget()),
     LabelWidget(
-        mainTitle: "线性布局Row和Column",
-        subTitle: "横向纵向布局，很类似，不多说了",
-        widget: const FittedBoxWidget()),
+        mainTitle: "Row、Column、Wrap、Stack、Flow、Align、Center",
+        subTitle: "横向纵向布局，流式布局，层叠布局、自定义布局Flow、单组件相对于父组件定位Align",
+        widget: const LineContainerWidget()),
   ];
 
   @override

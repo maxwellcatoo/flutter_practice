@@ -38,7 +38,7 @@ class _ContainerWidgetState extends State<ContainerWidget> {
             //变换
             child: const Text("Container子元素"),
           ),
-          SizedBox(height: 50,),
+          const SizedBox(height: 50,),
           const Text("Flutter的Decoration可以设置：背景色 背景图 边框 圆角 阴影 渐变色 的等属性"),
           const Text("BoxDecoration:实现边框、圆角、阴影、形状、渐变、背景图像"),
           const Text("ShapeDecoration:实现四边分别指定颜色和宽度、底部线、矩形边色、圆形边色、体育场（竖向椭圆）、 角形（八边角）边色"),
