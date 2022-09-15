@@ -167,7 +167,44 @@ class _LineContainerWidgetState extends State<LineContainerWidget>
   }
 
   Widget getFlowWidget() {
-    return Text("getFlowWidget");
+    return Align(
+      alignment: Alignment.topLeft,
+      child: Flow(
+        delegate: MyFlowDelegate(margin: EdgeInsets.fromLTRB(10, 10, 10, 10)),
+        children: [
+          Container(
+            height: 50,
+            width: 50,
+            color: Colors.blue,
+          ),
+          Container(
+            height: 50,
+            width: 50,
+            color: Colors.orange,
+          ),
+          Container(
+            height: 50,
+            width: 50,
+            color: Colors.green,
+          ),
+          Container(
+            height: 50,
+            width: 50,
+            color: Colors.blue,
+          ),
+          Container(
+            height: 50,
+            width: 50,
+            color: Colors.orange,
+          ),
+          Container(
+            height: 50,
+            width: 50,
+            color: Colors.green,
+          ),
+        ],
+      ),
+    );
   }
 
   Widget getAlignWidget() {
@@ -200,17 +237,18 @@ class _LineContainerWidgetState extends State<LineContainerWidget>
           ),
         ),
         Align(
-          alignment: Alignment(-1, -1),
+          alignment: const Alignment(-1, -1),
           child: Container(
             width: 50,
             height: 50,
             color: Colors.orange,
-            child: Text(
+            child: const Text(
               "黄色的也是,上不去",
               style: TextStyle(fontSize: 10),
             ),
           ),
-        )
+        ),
+        const Text("Center组件，其实就是写死alignment: Alignment.center的Align，没什么可说的")
       ],
     );
   }
@@ -252,5 +290,40 @@ class _LineContainerWidgetState extends State<LineContainerWidget>
         ),
       ),
     );
+  }
+}
+
+class MyFlowDelegate extends FlowDelegate {
+  EdgeInsets margin;
+  MyFlowDelegate({this.margin = EdgeInsets.zero});
+  
+  @override
+  void paintChildren(FlowPaintingContext context) {
+    var x = margin.left;
+    var y = margin.top;
+    // 计算每一个子widget的位置
+    for(int i = 0; i < context.childCount; i++){
+      var w = context.getChildSize(i)!.width + x + margin.right;
+      if(w < context.size.width){
+        context.paintChild(i, transform: Matrix4.translationValues(x,y,0.0));
+        x = w + margin.left;
+      } else {
+        x = margin.left;
+        y += context.getChildSize(i)!.height + margin.top + margin.bottom;
+        context.paintChild(i, transform: Matrix4.translationValues(x, y, 0.0));
+        x  += context.getChildSize(i)!.width + margin.left + margin.right;
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(FlowDelegate oldDelegate) {
+    return oldDelegate != this;
+  }
+
+  @override
+  Size getSize(BoxConstraints constraints) {
+    // 指定Flow的大小
+    return const Size(double.infinity, 200.0);
   }
 }
